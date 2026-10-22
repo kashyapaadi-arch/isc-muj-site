@@ -343,14 +343,15 @@ export default function Hero({ onOpenEnquire }: HeroProps) {
           </div>
         </div>
 
-        {/* 4 Bento Metrics Strip - Crisp White Typography (Not Orange!) */}
+        {/* 4 Bento Metrics Strip - 2x2 on Mobile, 4 columns on Desktop */}
         <div
           style={{
-            marginTop: "48px",
+            marginTop: "44px",
             display: "grid",
-            gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))",
-            gap: "16px",
+            gridTemplateColumns: "repeat(auto-fit, minmax(140px, 1fr))",
+            gap: "12px",
           }}
+          className="hero-stats-grid"
         >
           {ISC_DATA.stats.map((stat) => (
             <div
@@ -360,10 +361,10 @@ export default function Hero({ onOpenEnquire }: HeroProps) {
                 backdropFilter: "blur(10px)",
                 border: "1px solid rgba(246, 185, 130, 0.18)",
                 borderRadius: "14px",
-                padding: "18px 20px",
+                padding: "16px 18px",
                 display: "flex",
                 flexDirection: "column",
-                gap: "4px",
+                gap: "2px",
                 transition: "all 0.2s ease",
               }}
               onMouseEnter={(e) => {
@@ -378,20 +379,21 @@ export default function Hero({ onOpenEnquire }: HeroProps) {
               <div
                 style={{
                   fontFamily: "var(--font-base)",
-                  fontSize: "1.85rem",
+                  fontSize: "clamp(1.5rem, 3.5vw, 1.85rem)",
                   fontWeight: 800,
                   color: "#FFFFFF",
                   letterSpacing: "-0.02em",
-                  lineHeight: 1,
+                  lineHeight: 1.1,
                 }}
               >
                 {stat.value}
               </div>
               <div
                 style={{
-                  fontSize: "0.8rem",
+                  fontSize: "0.75rem",
                   color: "#E2D9D2",
                   fontWeight: 500,
+                  lineHeight: 1.3,
                 }}
               >
                 {stat.label}
@@ -405,7 +407,13 @@ export default function Hero({ onOpenEnquire }: HeroProps) {
         @media (max-width: 900px) {
           .hero-inner-grid {
             grid-template-columns: 1fr !important;
-            gap: 36px !important;
+            gap: 32px !important;
+          }
+        }
+        @media (max-width: 600px) {
+          .hero-stats-grid {
+            grid-template-columns: 1fr 1fr !important;
+            gap: 10px !important;
           }
         }
       `}</style>

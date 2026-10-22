@@ -185,9 +185,8 @@ export default function TeamSection() {
 
           {/* Segmented Filter Tabs */}
           <div
+            className="mobile-scroll-x"
             style={{
-              display: "inline-flex",
-              flexWrap: "wrap",
               gap: "6px",
               backgroundColor: "var(--color-bg)",
               padding: "5px",
@@ -213,6 +212,8 @@ export default function TeamSection() {
                   backgroundColor: activeTab === tab.id ? "var(--color-primary)" : "transparent",
                   color: activeTab === tab.id ? "#FFFFFF" : "var(--color-text-body)",
                   transition: "all 0.15s ease",
+                  flexShrink: 0,
+                  whiteSpace: "nowrap",
                 }}
               >
                 {tab.label}

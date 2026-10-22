@@ -1,7 +1,7 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
-import { Search, Menu, X, ArrowRight } from "lucide-react";
+import { Search, Menu, X, ArrowRight, ExternalLink } from "lucide-react";
 import { MujLogo, LinkedInIcon } from "./IscBadges";
 
 interface NavbarProps {
@@ -43,14 +43,14 @@ export default function Navbar({ onOpenEnquire, onOpenSearch }: NavbarProps) {
         transition: "all 0.2s ease",
       }}
     >
-      <div className="container" style={{ padding: "0 24px" }}>
+      <div className="container" style={{ padding: "0 16px" }}>
         <div
           style={{
             display: "flex",
             alignItems: "center",
             justifyContent: "space-between",
-            height: "68px",
-            gap: "24px",
+            height: "64px",
+            gap: "16px",
           }}
         >
           {/* Brand Identity: Official MUJ Logo + ISC Badge */}
@@ -59,18 +59,20 @@ export default function Navbar({ onOpenEnquire, onOpenSearch }: NavbarProps) {
             style={{
               display: "flex",
               alignItems: "center",
-              gap: "14px",
+              gap: "10px",
               textDecoration: "none",
               flexShrink: 0,
             }}
           >
             {/* Official MUJ Vector SVG Logo */}
-            <MujLogo height={32} />
+            <div className="nav-muj-logo">
+              <MujLogo height={28} />
+            </div>
 
             <div
               style={{
                 width: "1px",
-                height: "24px",
+                height: "22px",
                 backgroundColor: "var(--color-border)",
               }}
             />
@@ -79,8 +81,8 @@ export default function Navbar({ onOpenEnquire, onOpenSearch }: NavbarProps) {
             <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
               <div
                 style={{
-                  width: 30,
-                  height: 30,
+                  width: 28,
+                  height: 28,
                   borderRadius: "6px",
                   overflow: "hidden",
                   backgroundColor: "#000000",
@@ -101,12 +103,13 @@ export default function Navbar({ onOpenEnquire, onOpenSearch }: NavbarProps) {
                   style={{
                     fontFamily: "var(--font-base)",
                     fontWeight: 700,
-                    fontSize: "0.82rem",
-                    letterSpacing: "0.02em",
+                    fontSize: "0.8rem",
+                    letterSpacing: "0.01em",
                     color: "var(--color-text-heading)",
                     lineHeight: 1.15,
                     whiteSpace: "nowrap",
                   }}
+                  className="nav-isc-title"
                 >
                   International Student Cell
                 </span>
@@ -114,12 +117,12 @@ export default function Navbar({ onOpenEnquire, onOpenSearch }: NavbarProps) {
                   style={{
                     fontFamily: "var(--font-base)",
                     fontWeight: 600,
-                    fontSize: "0.68rem",
+                    fontSize: "0.65rem",
                     color: "var(--color-primary)",
-                    letterSpacing: "0.06em",
+                    letterSpacing: "0.05em",
                     textTransform: "uppercase",
                     lineHeight: 1.1,
-                    marginTop: "2px",
+                    marginTop: "1px",
                   }}
                 >
                   DoIC • MUJ
@@ -128,13 +131,13 @@ export default function Navbar({ onOpenEnquire, onOpenSearch }: NavbarProps) {
             </div>
           </Link>
 
-          {/* Desktop Center Navigation Links (Clean, No wrap, Balanced) */}
+          {/* Desktop Center Navigation Links */}
           <div
             className="nav-desktop-links"
             style={{
               display: "flex",
               alignItems: "center",
-              gap: "6px",
+              gap: "4px",
             }}
           >
             {navLinks.map((link) => (
@@ -148,7 +151,7 @@ export default function Navbar({ onOpenEnquire, onOpenSearch }: NavbarProps) {
                   letterSpacing: "0.01em",
                   color: "var(--color-text-body)",
                   textDecoration: "none",
-                  padding: "7px 14px",
+                  padding: "6px 12px",
                   borderRadius: "8px",
                   whiteSpace: "nowrap",
                   transition: "all 0.15s ease",
@@ -169,14 +172,14 @@ export default function Navbar({ onOpenEnquire, onOpenSearch }: NavbarProps) {
           </div>
 
           {/* Right Action Elements */}
-          <div style={{ display: "flex", alignItems: "center", gap: "10px", flexShrink: 0 }}>
+          <div style={{ display: "flex", alignItems: "center", gap: "8px", flexShrink: 0 }}>
             {/* Search Trigger */}
             <button
               onClick={onOpenSearch}
               aria-label="Search"
               style={{
-                width: 36,
-                height: 36,
+                width: 34,
+                height: 34,
                 borderRadius: "50%",
                 display: "flex",
                 alignItems: "center",
@@ -185,18 +188,9 @@ export default function Navbar({ onOpenEnquire, onOpenSearch }: NavbarProps) {
                 border: "1px solid var(--color-border)",
                 color: "var(--color-text-body)",
                 cursor: "pointer",
-                transition: "all 0.15s ease",
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.borderColor = "var(--color-primary)";
-                e.currentTarget.style.color = "var(--color-primary)";
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.borderColor = "var(--color-border)";
-                e.currentTarget.style.color = "var(--color-text-body)";
               }}
             >
-              <Search size={15} />
+              <Search size={14} />
             </button>
 
             {/* LinkedIn Icon */}
@@ -206,8 +200,8 @@ export default function Navbar({ onOpenEnquire, onOpenSearch }: NavbarProps) {
               rel="noreferrer"
               aria-label="ISC LinkedIn"
               style={{
-                width: 36,
-                height: 36,
+                width: 34,
+                height: 34,
                 borderRadius: "50%",
                 display: "flex",
                 alignItems: "center",
@@ -215,27 +209,18 @@ export default function Navbar({ onOpenEnquire, onOpenSearch }: NavbarProps) {
                 backgroundColor: "#FFFFFF",
                 border: "1px solid var(--color-border)",
                 color: "#0A66C2",
-                transition: "all 0.15s ease",
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.borderColor = "#0A66C2";
-                e.currentTarget.style.backgroundColor = "var(--color-secondary-soft)";
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.borderColor = "var(--color-border)";
-                e.currentTarget.style.backgroundColor = "#FFFFFF";
               }}
             >
-              <LinkedInIcon size={15} color="#0A66C2" />
+              <LinkedInIcon size={14} color="#0A66C2" />
             </a>
 
-            {/* Apply / Inquire CTA Button */}
+            {/* Desktop Apply / Inquire CTA Button */}
             <button
               onClick={onOpenEnquire}
-              className="btn-primary"
+              className="btn-primary nav-desktop-apply"
               style={{
-                padding: "8px 18px",
-                fontSize: "0.8125rem",
+                padding: "8px 16px",
+                fontSize: "0.8rem",
                 fontWeight: 600,
                 letterSpacing: "0.02em",
                 whiteSpace: "nowrap",
@@ -245,7 +230,7 @@ export default function Navbar({ onOpenEnquire, onOpenSearch }: NavbarProps) {
               <ArrowRight size={13} />
             </button>
 
-            {/* Mobile Hamburger Button */}
+            {/* Mobile Hamburger Toggle Button */}
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               className="nav-mobile-toggle"
@@ -274,17 +259,19 @@ export default function Navbar({ onOpenEnquire, onOpenSearch }: NavbarProps) {
         <div
           style={{
             position: "fixed",
-            top: "100%",
+            top: "64px",
             left: 0,
             right: 0,
             backgroundColor: "#FFFFFF",
-            boxShadow: "0 20px 40px rgba(0, 0, 0, 0.12)",
+            boxShadow: "0 25px 50px rgba(0, 0, 0, 0.15)",
             borderBottom: "2px solid var(--color-primary)",
             padding: "20px 24px",
             zIndex: 999,
+            maxHeight: "calc(100vh - 64px)",
+            overflowY: "auto",
           }}
         >
-          <div style={{ display: "flex", flexDirection: "column", gap: "10px", marginBottom: "16px" }}>
+          <div style={{ display: "flex", flexDirection: "column", gap: "8px", marginBottom: "20px" }}>
             {navLinks.map((link) => (
               <a
                 key={link.label}
@@ -292,15 +279,19 @@ export default function Navbar({ onOpenEnquire, onOpenSearch }: NavbarProps) {
                 onClick={() => setMobileMenuOpen(false)}
                 style={{
                   fontFamily: "var(--font-base)",
-                  fontSize: "0.95rem",
+                  fontSize: "1.05rem",
                   fontWeight: 600,
                   color: "var(--color-text-heading)",
                   textDecoration: "none",
-                  padding: "8px 0",
+                  padding: "10px 0",
                   borderBottom: "1px solid var(--color-border-light)",
+                  display: "flex",
+                  justifyContent: "space-between",
+                  alignItems: "center",
                 }}
               >
-                {link.label}
+                <span>{link.label}</span>
+                <span style={{ color: "var(--color-primary)", fontSize: "1.1rem" }}>&rsaquo;</span>
               </a>
             ))}
           </div>
@@ -311,20 +302,30 @@ export default function Navbar({ onOpenEnquire, onOpenSearch }: NavbarProps) {
               onOpenEnquire?.();
             }}
             className="btn-primary"
-            style={{ width: "100%", padding: "12px", justifyContent: "center" }}
+            style={{ width: "100%", padding: "13px", justifyContent: "center", fontSize: "0.95rem" }}
           >
             Apply for Exchange / Inquire
           </button>
+
+          <div style={{ marginTop: "16px", textAlign: "center", fontSize: "0.78rem", color: "var(--color-text-muted)" }}>
+            DoIC • Manipal University Jaipur
+          </div>
         </div>
       )}
 
       <style jsx global>{`
-        @media (max-width: 990px) {
-          .nav-desktop-links {
+        @media (max-width: 900px) {
+          .nav-desktop-links,
+          .nav-desktop-apply {
             display: none !important;
           }
           .nav-mobile-toggle {
             display: flex !important;
+          }
+        }
+        @media (max-width: 540px) {
+          .nav-isc-title {
+            display: none !important;
           }
         }
       `}</style>

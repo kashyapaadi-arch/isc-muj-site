@@ -246,3 +246,30 @@ p, span, a, button, input, select, textarea {
 ::-webkit-scrollbar-thumb:hover {
   background: #94a3b8;
 }
+
+/* Mobile & Responsive Utilities */
+.mobile-scroll-x {
+  display: flex;
+  overflow-x: auto;
+  white-space: nowrap;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  padding-bottom: 4px;
+}
+.mobile-scroll-x::-webkit-scrollbar {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  body {
+    font-size: 14.5px;
+  }
+  .bento-card {
+    padding: 20px !important;
+  }
+  .btn-primary, .btn-secondary {
+    padding: 10px 18px !important;
+    font-size: 0.85rem !important;
+  }
+}

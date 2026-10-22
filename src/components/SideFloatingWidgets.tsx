@@ -1,6 +1,6 @@
 "use client";
 import React, { useState, useEffect } from "react";
-import { ArrowUp, MessageSquare, Sparkles } from "lucide-react";
+import { ArrowUp, MessageSquare } from "lucide-react";
 
 interface SideFloatingWidgetsProps {
   onOpenEnquire: () => void;
@@ -26,16 +26,16 @@ export default function SideFloatingWidgets({
 
   return (
     <>
-      {/* Modern Floating Action Cluster (Bottom-Right) */}
+      {/* Modern Floating Action Cluster (Bottom-Right, Responsive) */}
       <div
         style={{
           position: "fixed",
-          bottom: "24px",
-          right: "24px",
+          bottom: "16px",
+          right: "16px",
           zIndex: 850,
           display: "flex",
           alignItems: "center",
-          gap: "10px",
+          gap: "8px",
         }}
       >
         {/* Modern Inquire / Chat Pill */}
@@ -44,17 +44,18 @@ export default function SideFloatingWidgets({
           style={{
             display: "inline-flex",
             alignItems: "center",
-            gap: "8px",
-            padding: "10px 18px",
+            gap: "6px",
+            padding: "8px 14px",
             backgroundColor: "#FFFFFF",
             color: "var(--color-primary)",
             borderRadius: "var(--radius-full)",
             border: "1px solid var(--color-border)",
             boxShadow: "var(--shadow-md)",
             fontWeight: 700,
-            fontSize: "0.84rem",
+            fontSize: "0.8rem",
             cursor: "pointer",
             transition: "all 0.2s ease",
+            backdropFilter: "blur(8px)",
           }}
           onMouseEnter={(e) => {
             e.currentTarget.style.backgroundColor = "var(--color-primary-soft)";
@@ -69,14 +70,14 @@ export default function SideFloatingWidgets({
         >
           <span
             style={{
-              width: 8,
-              height: 8,
+              width: 7,
+              height: 7,
               borderRadius: "50%",
               backgroundColor: "#22C55E",
             }}
           />
-          <MessageSquare size={15} />
-          <span>Ask ISC Advisor</span>
+          <MessageSquare size={14} />
+          <span>Ask ISC</span>
         </button>
 
         {/* Smooth Back to Top Button */}
@@ -85,8 +86,8 @@ export default function SideFloatingWidgets({
             onClick={scrollToTop}
             aria-label="Back to top"
             style={{
-              width: 40,
-              height: 40,
+              width: 36,
+              height: 36,
               borderRadius: "50%",
               backgroundColor: "#FFFFFF",
               color: "var(--color-text-heading)",
@@ -109,7 +110,7 @@ export default function SideFloatingWidgets({
               e.currentTarget.style.transform = "translateY(0)";
             }}
           >
-            <ArrowUp size={18} />
+            <ArrowUp size={16} />
           </button>
         )}
       </div>

@@ -54,9 +54,8 @@ export default function EventsGallery() {
 
           {/* Clean Segmented Filter Tabs */}
           <div
+            className="mobile-scroll-x"
             style={{
-              display: "flex",
-              flexWrap: "wrap",
               gap: "6px",
               backgroundColor: "#FFFFFF",
               padding: "4px",
@@ -79,6 +78,8 @@ export default function EventsGallery() {
                     backgroundColor: active ? "var(--color-primary)" : "transparent",
                     color: active ? "#FFFFFF" : "var(--color-text-body)",
                     transition: "all 0.15s ease",
+                    flexShrink: 0,
+                    whiteSpace: "nowrap",
                   }}
                 >
                   {tab.label}

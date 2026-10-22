@@ -103,9 +103,8 @@ export default function ObjectivesSection() {
 
           {/* Interactive Category Filter Pills */}
           <div
+            className="mobile-scroll-x"
             style={{
-              display: "flex",
-              flexWrap: "wrap",
               gap: "6px",
               backgroundColor: "var(--color-bg)",
               padding: "5px",
@@ -133,6 +132,8 @@ export default function ObjectivesSection() {
                     backgroundColor: active ? "var(--color-primary)" : "transparent",
                     color: active ? "#FFFFFF" : "var(--color-text-body)",
                     transition: "all 0.15s ease",
+                    flexShrink: 0,
+                    whiteSpace: "nowrap",
                   }}
                 >
                   {tab.label}
